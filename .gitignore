@@ -3,7 +3,7 @@
 *.json
 *.pyc
 data/
-webooks/migrations/
+shop/migrations/
 
 config/override.py
 config/deploy_env.py
