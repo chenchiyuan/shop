@@ -6,16 +6,42 @@ from django.contrib import admin
 from models import Region, Category, Shop, Product
 
 class RegionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["name", "description"]
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ["name", "region__name"]
+    list_filter = ["region", ]
+    list_display = ["name", "region", "priority"]
 
 class ShopAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["name", "owner", "telephone", "opentime", "address", "short_notice", "image"]
+    search_fields = ["name", "owner"]
+
+    def telephone(self, obj):
+        return obj.telephone()
+    telephone.short_description = "电话"
+
+    def opentime(self, obj):
+        return obj.opentime()
+    opentime.short_description = "营业时间"
+
+    def short_notice(self, obj):
+        return obj.notice[:40]
+    short_notice.short_description = "简短公告"
+
+    def image(self, obj):
+        return '<img href="%s">' % obj.picture
+    image.short_description = "图片"
+    image.allow_tags = True
+
 
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ["name", "keywords", "shop__name"]
+    list_display = ["name", "shop", "price_unit", "category", "keywords"]
+
+    def price_unit(self, obj):
+        return obj.price_unit()
+    price_unit.short_description = "单价"
 
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Category, CategoryAdmin)

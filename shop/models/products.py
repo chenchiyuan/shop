@@ -25,3 +25,6 @@ class Product(models.Model):
 
     def __unicode__(self):
         return "%s: %s" %(self.shop.name, self.name)
+
+    def price_unit(self):
+        return "%d元/ 1%s" %(self.price, self.get_unit_display())
