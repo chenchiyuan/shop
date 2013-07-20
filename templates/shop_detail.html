@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        图片: {{ shop.picture }}
+        店主: {{ shop.owner }}
+        电话: {{ shop.phone }}
+    </div>
+    <div>
+        {% for product in shop.product_set.all %}
+            {{ product.name }}  {{ product.price }} 元/ 1{{ product.get_unit_display }}
+        {% endfor %}
+    </div>
+</body>
+</html>

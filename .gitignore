@@ -1,0 +1,10 @@
+.idea/*
+*.xml
+*.json
+*.pyc
+data/
+webooks/migrations/
+*.txt
+
+config/override.py
+config/deploy_env.py
