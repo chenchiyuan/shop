@@ -3,3 +3,4 @@ south
 unidecode
 django-redis
 gunicorn
+raven

@@ -124,6 +124,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     "south",
     'shop',
+    'raven.contrib.django.raven_compat'
 )
 
 # A sample logging configuration. The only tangible logging
@@ -166,3 +167,8 @@ CACHES = {
             }
     }
 }
+
+# RAVEN
+RAVEN_CONFIG = {
+    'dsn': 'http://9a7c422268144c0e8a82a3421b0c4621:31860a01d6684608b867962e1eba1b96@sentry.zoneke.com/4',
+    }
