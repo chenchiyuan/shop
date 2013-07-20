@@ -5,6 +5,7 @@ from __future__ import division, unicode_literals, print_function
 
 from django.http import QueryDict
 from django.core.urlresolvers import reverse
+from django.conf import settings
 import urlparse
 import logging
 logger = logging.getLogger(__name__)
@@ -44,3 +45,11 @@ def get_referer_url(request):
     elif get_full_path(referer_url) in ['/user/login/', '/register/']:
         referer_url = '/'
     return referer_url
+
+def get_domain_path(path):
+    if not path:
+        return "http://%s/" %settings.DOMAIN_NAME
+    elif path[0] == "/":
+        return "http://%s%s" %(settings.DOMAIN_NAME, path)
+    else:
+        return "http://%s/%s" %(settings.DOMAIN_NAME, path)

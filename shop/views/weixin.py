@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View
 from shop.weixin.weixin import WeiXin
 from shop.models import Region
-from utils.helper import get_url_by_conf
+from utils.helper import get_url_by_conf, get_domain_path
 
 class WeiXinView(View):
     def get(self, request, *args, **kwargs):
@@ -31,7 +31,7 @@ class WeiXinView(View):
                 "title": category.name,
                 "description": "",
                 "picurl": "http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-go-next-icon.png",
-                "url": get_url_by_conf("region_category", args=[region.id, category.id])
+                "url": get_domain_path(get_url_by_conf("region_category", args=[region.id, category.id]))
             }
             articles.append(article)
 
