@@ -21,7 +21,7 @@ class Region(models.Model, GetByUniqueMixin):
     def __unicode__(self):
         return self.name
 
-class Category(models.Model):
+class Category(models.Model, GetByUniqueMixin):
     class Meta:
         app_label = "shop"
         db_table = "shop_category"

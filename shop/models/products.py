@@ -23,6 +23,9 @@ class Product(models.Model):
     category = models.CharField(_("商品分类"), blank=True, null=True,
         default="", max_length=const.DB_NAME_LENGTH)
 
+    picture = models.CharField(_("照片"), max_length=const.DB_ADDRESS_LENGTH,
+        blank=True, null=True, default="")
+
     def __unicode__(self):
         return "%s: %s" %(self.shop.name, self.name)
 
