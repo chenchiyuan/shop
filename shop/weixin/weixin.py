@@ -48,7 +48,7 @@ class WeiXin(object):
     def _cdata(self, data):
         '''http://stackoverflow.com/questions/174890/how-to-output-cdata-using-elementtree
         '''
-        if type(data) is str:
+        if type(data) in (str, unicode):
             return '<![CDATA[%s]]>' % data.replace(']]>', ']]]]><![CDATA[>')
         return data
 
