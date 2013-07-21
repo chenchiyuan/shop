@@ -1,0 +1,53 @@
+.shop-info{
+	margin-bottom: 16px;
+	height: 100px;	
+}
+
+.shop-info .avatar{
+	float:left;
+}
+
+.shop-info .avatar img{
+	width: 120px;
+	height: 90px;
+}
+
+.shop-info .content{
+	float:left;
+	margin:10px 8px;
+}
+
+.shop-info .content .title{
+	margin: 0;
+}
+
+
+.shop-func{
+	margin-bottom: 24px;
+}
+
+.shop-func .opening p
+{
+	white-space:pre-line;
+}
+
+
+.item-list .ui-li-has-thumb img{
+	width: 60px;
+	height:60px;
+}
+.item-list .ui-li-has-thumb .ui-btn-inner .ui-link-inherit{
+	padding-left: 70px;
+}
+.item-list .counter-container .ui-input-text{
+	width: 30px;
+	display: inline-block;
+}
+.item-list .counter-container{
+	padding: 6px 10px;
+	width:120px;
+}
+.item-list .ui-li-has-thumb .ui-btn-inner .name{
+	white-space:pre-line;
+}
+
