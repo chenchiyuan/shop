@@ -30,7 +30,7 @@ class WeiXinView(View):
             article = {
                 "title": category.name,
                 "description": "",
-                "picurl": "http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-go-next-icon.png",
+                "picurl": "", #"http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Actions-go-next-icon.png",
                 "url": get_domain_path(get_url_by_conf("region_category", args=[region.id, category.id]))
             }
             articles.append(article)
