@@ -6,6 +6,8 @@ from regions import Region, Category
 from shops import Shop
 from products import Product
 
+from orders import Item, Order
+
 __all__ = [
-    Region, Category, Shop, Product
+    Region, Category, Shop, Product, Item, Order
 ]
