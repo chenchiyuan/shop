@@ -27,4 +27,4 @@ class Product(models.Model):
         return "%s: %s" %(self.shop.name, self.name)
 
     def price_unit(self):
-        return "%d元/ 1%s" %(self.price, self.unit)
+        return "%d元/ %s" %(self.price, self.unit)
