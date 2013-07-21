@@ -4,7 +4,7 @@
 *.pyc
 data/
 shop/migrations/
-static
+static/*
 
 config/override.py
 config/deploy_env.py
