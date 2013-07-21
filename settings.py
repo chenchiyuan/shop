@@ -1,9 +1,11 @@
 # Django settings for shop project.
+from config import config
 import os
+
 PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = config.getboolean("django", "debug")
+TEMPLATE_DEBUG = config.getboolean("django", "template_dubug")
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -11,7 +13,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DOMAIN_NAME = 'life.zoneke.com'
+DOMAIN_NAME = config.get("django", "domain")
 
 DATABASES = {
     'default': {
@@ -163,7 +165,7 @@ LOGGING = {
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.cache.RedisCache",
-        "LOCATION": "127.0.0.1:6379:1",
+        "LOCATION": config.get("redis", "location"),
         "OPTIONS": {
             "CLIENT_CLASS": "redis_cache.client.DefaultClient",
             }
@@ -172,5 +174,5 @@ CACHES = {
 
 # RAVEN
 RAVEN_CONFIG = {
-    'dsn': 'http://9a7c422268144c0e8a82a3421b0c4621:31860a01d6684608b867962e1eba1b96@sentry.zoneke.com/4',
+    'dsn': config.get("sentry", "dsn"),
     }
