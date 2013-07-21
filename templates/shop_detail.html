@@ -12,7 +12,7 @@
     </div>
     <div>
         {% for product in shop.product_set.all %}
-            {{ product.name }}  {{ product.price }} 元/ 1{{ product.get_unit_display }}
+            {{ product.name }}  {{ product.price }} 元/ 1{{ product.unit }}
         {% endfor %}
     </div>
 </body>

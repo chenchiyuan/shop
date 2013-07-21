@@ -15,7 +15,7 @@ class Product(models.Model):
 
     name = models.CharField(_("商品名"), max_length=const.DB_NAME_LENGTH)
     price = models.IntegerField(_("单价"), default=0)
-    unit = models.IntegerField(_("单位"), choices=const.UNIT_CHOICES, default=const.GE)
+    unit = models.CharField(_("单位"), max_length=8, default="个", blank=True, null=True)
 
     shop = models.ForeignKey(Shop, verbose_name=_("商户"))
     keywords = models.CharField(_("搜索关键字"), blank=True, null=True, default="",
@@ -27,4 +27,4 @@ class Product(models.Model):
         return "%s: %s" %(self.shop.name, self.name)
 
     def price_unit(self):
-        return "%d元/ 1%s" %(self.price, self.get_unit_display())
+        return "%d元/ 1%s" %(self.price, self.unit)
