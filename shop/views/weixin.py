@@ -23,7 +23,7 @@ class WeiXinView(View):
                 "title": u"%s" % region.name,
                 "description": u"%s" %region.description,
                 "picurl": "http://life.zoneke.com/static/assets/community/banner.jpg",
-                "url": ""
+                "url": "http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NDQ0MzMzNA==&appmsgid=10000001&itemidx=1&sign=f0e4525d09fb73da5fb44835282eb0f4#wechat_redirect"
             }
         ]
         for category in categories:
