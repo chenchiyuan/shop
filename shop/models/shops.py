@@ -34,6 +34,9 @@ class Shop(models.Model, GetByUniqueMixin):
     picture = models.CharField(_("照片"), max_length=const.DB_ADDRESS_LENGTH,
         blank=True, null=True, default="")
 
+    sending_price = models.SmallIntegerField(_(u"起送价格"), default=0,
+        blank=True, null=True)
+
     region = models.ForeignKey(Region, verbose_name=_("所属区域"))
     category = models.ForeignKey(Category, verbose_name=_("所属分类"), blank=True, null=True)
 
