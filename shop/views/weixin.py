@@ -22,7 +22,7 @@ class WeiXinView(View):
             {
                 "title": u"%s" % region.name,
                 "description": u"%s" %region.description,
-                "picurl": "http://cayman.b0.upaiyun.com/71509cef7a4940aea89fa6d512be8715.jpeg!medium",
+                "picurl": "http://life.zoneke.com/static/assets/community/banner.jpg",
                 "url": ""
             }
         ]
