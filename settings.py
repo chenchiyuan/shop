@@ -1,6 +1,7 @@
 # Django settings for shop project.
 from config import config
 import os
+import json
 
 PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 
@@ -10,6 +11,8 @@ TEMPLATE_DEBUG = config.getboolean("django", "template_dubug")
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+ALLOWED_HOSTS = json.loads(config.get("django", "allowed_hosts"))
 
 MANAGERS = ADMINS
 
