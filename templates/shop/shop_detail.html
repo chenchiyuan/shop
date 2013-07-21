@@ -12,22 +12,13 @@
 </head>
 <body>
 	<div data-role="page">
-		<div data-role="header" data-position="fixed" data-theme="a">
-			<h1>{{ shop.name }}</h1>
-		</div>
-		<div data-role="footer" data-position="fixed" class="ui-bar">
-			<a href="#" data-icon="plus">Add</a>
-			<a href="#" data-icon="arrow-u">Up</a>
-			<a href="#" data-icon="arrow-d">Down</a>
-		</div>
 		<div data-role="content">
 			<div class="shop-info">
 				<div class="avatar" data-controltype="image" data-cid="image1">
 					<img src="{{ shop.picture }}">
 				</div>
 				<div class="content">
-					<h1 class="title">{{ shop.name }}</h1>
-					<!-- <p>电话: 18600163883</p> -->
+					<h2 class="title">{{ shop.name }}</h2>
 				</div>
 			</div>
 
@@ -37,21 +28,18 @@
 						<a href="{% url 'region_shop_notice' shop.region.id shop.id %}" rel="external">{{ shop.notice }}！</a>
 					</li>
 					<li>
-						<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">
-							<p><strong>电话: </strong>{{ shop.phone }}</p>
+						<a href="tel:{{ shop.phone }}">
+							电话: {{ shop.phone }}
 						</a>
 					</li>
-					<li data-icon="false">
-						<p><strong>小贴士:</strong></p>
-					</li>
 					<li class="opening" data-icon="false">
-						<p><strong>营业时间: </strong>{{ shop.opentime }}</p>
+						营业时间: {{ shop.opentime }}
 					</li>
 				</ul>
 			</div>
 
 			<div class="item-list">
-				<ul data-role="listview" data-autodividers="false" data-filter="true" data-inset="true" data-icon="false" data-divider-theme="b">
+				<ul data-role="listview" data-autodividers="false" data-filter="true" data-inset="true" data-icon="false" data-divider-theme="b" data-filter-placeholder="搜索">
                     {% for product in shop.product_set.all %}
                         <li>
                             <a href="#">
