@@ -4,3 +4,4 @@ unidecode
 django-redis
 gunicorn
 raven
+requests

@@ -178,4 +178,8 @@ CACHES = {
 # RAVEN
 RAVEN_CONFIG = {
     'dsn': config.get("sentry", "dsn"),
-    }
+}
+
+# SMS
+SMS_ACCESS_KEY = config.get("sms", "accesskey")
+SMS_SECRET_KEY = config.get("sms", "secretkey")
