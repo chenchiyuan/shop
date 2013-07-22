@@ -4,6 +4,7 @@
 from __future__ import division, unicode_literals, print_function
 from django.contrib import admin
 from models import Region, Category, Shop, Product
+from models import Order, Item, Message
 
 class RegionAdmin(admin.ModelAdmin):
     list_display = ["name", "description"]
@@ -43,7 +44,19 @@ class ProductAdmin(admin.ModelAdmin):
         return obj.price_unit()
     price_unit.short_description = "单价"
 
+class OrderAdmin(admin.ModelAdmin):
+    pass
+
+class ItemAdmin(admin.ModelAdmin):
+    pass
+
+class MessageAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Shop, ShopAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Order, OrderAdmin)
+admin.site.register(Item, ItemAdmin)
+admin.site.register(Message, MessageAdmin)

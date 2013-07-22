@@ -7,7 +7,8 @@ from shops import Shop
 from products import Product
 
 from orders import Item, Order
+from sms import Message
 
 __all__ = [
-    Region, Category, Shop, Product, Item, Order
+    Region, Category, Shop, Product, Item, Order, Message
 ]
