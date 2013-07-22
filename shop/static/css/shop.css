@@ -33,11 +33,12 @@
 
 
 .item-list .ui-li-has-thumb img{
+	margin: 10px 6px;
 	width: 60px;
 	height:60px;
 }
 .item-list .ui-li-has-thumb .ui-btn-inner .ui-link-inherit{
-	padding-left: 70px;
+	padding-left: 74px;
 }
 .item-list .counter-container .ui-input-text{
 	width: 30px;
