@@ -3,7 +3,7 @@
 *.json
 *.pyc
 data/
-shop/migrations/
+migrations/
 static/*
 
 config/override.py
