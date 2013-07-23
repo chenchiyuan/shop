@@ -20,10 +20,10 @@ DOMAIN_NAME = config.get("django", "domain")
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'shop',                      # Or path to database file if using sqlite3.
-        'USER': 'shadow',                      # Not used with sqlite3.
-        'PASSWORD': '900303',                  # Not used with sqlite3.
+        'ENGINE': config.get("db", "engine"), # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': config.get("db", "db_name"),                      # Or path to database file if using sqlite3.
+        'USER': config.get("db", "username"),                      # Not used with sqlite3.
+        'PASSWORD': config.get("db", "password"),                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
