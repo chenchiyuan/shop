@@ -13,6 +13,11 @@ class ShopDetailView(TemplateView):
         shop_id = kwargs.get("shop_id", "")
         shop = Shop.get_by_unique(id=shop_id)
         context['shop'] = shop
+        filter = "true"
+        if not shop.product_set.count():
+            filter = "false"
+        context['filter'] = filter
+
         return context
 
 class ShopNoticeView(TemplateView):
@@ -24,8 +29,4 @@ class ShopNoticeView(TemplateView):
         shop = Shop.get_by_unique(id=shop_id)
         context['shop'] = shop
 
-        filter = "true"
-        if not shop.product_set.count():
-            filter = "false"
-        context['filter'] = filter
         return context
