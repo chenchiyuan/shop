@@ -14,7 +14,7 @@ class Product(models.Model):
         verbose_name = verbose_name_plural = _('商品')
 
     name = models.CharField(_("商品名"), max_length=const.DB_NAME_LENGTH)
-    price = models.IntegerField(_("单价"), default=0)
+    price = models.FloatField(_("单价"), default=0.0)
     unit = models.CharField(_("单位"), max_length=8, default="个", blank=True, null=True)
 
     shop = models.ForeignKey(Shop, verbose_name=_("商户"))

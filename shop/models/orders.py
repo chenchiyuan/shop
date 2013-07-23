@@ -19,6 +19,7 @@ class Order(models.Model):
 
     shop = models.ForeignKey(Shop, verbose_name=_("商家"))
     created_at = models.DateTimeField(default=now, blank=True, null=True)
+    total = models.FloatField(_("总价"), default=0.0, blank=True, null=True)
 
 class Item(models.Model):
     class Meta:
