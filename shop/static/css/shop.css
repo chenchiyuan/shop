@@ -57,3 +57,6 @@
 	padding-top: 10px;
 	padding-left:10px;
 }
+.menu-list ul li .address{
+	white-space:pre-line;
+}
