@@ -18,21 +18,9 @@ DB_ADDRESS_LENGTH = 128
 DB_MESSAGE_LENGTH = 512
 DB_NOTICE_LENGTH = 1024
 
-# CHOICES
-GE = 0
-TING = 1
-BAO = 2
-DAI = 3
-
-UNIT_CHOICES = (
-    (GE, "个"),
-    (TING, "厅"),
-    (BAO, "包"),
-    (DAI, "袋")
-)
 
 USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
 
-SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "beiwei40.jpg")
-PRODUCT_PICTURE_DEFAULT = SHOP_PICTURE_DEFAULT
+SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "shop_default.png")
+PRODUCT_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "item_default.png")
 ARROW_IMAGE = ""#"http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "arrow.png")
