@@ -13,7 +13,7 @@
 		<div data-role="content">
 			<div class="shop-info">
 				<div class="avatar" data-controltype="image" data-cid="image1">
-					<img src="{{ shop.picture }}">
+					<img src="{{ shop.get_picture }}">
 				</div>
 				<div class="content">
 					<h2 class="title">{{ shop.name }}</h2>
@@ -41,7 +41,7 @@
                     {% for product in shop.product_set.all %}
                         <li>
                             <a href="#">
-                                <img src="{{ product.picture }}">
+                                <img src="{{ product.get_picture }}">
                                 <h2>{{ product.name }}</h2>
                                 <p>{{ product.price_unit }}</p>
                             </a>

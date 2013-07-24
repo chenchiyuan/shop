@@ -16,7 +16,7 @@
                     {% for shop in shops %}
                         <li>
                             <a href="{% url 'region_shop' shop.region.id shop.id %}" rel="external">
-                                <img src="{{ shop.picture }}">
+                                <img src="{{ shop.get_picture }}">
                                 <h2>{{ shop.name }}</h2>
                                 <p class="address"><strong>地址: </strong>{{ shop.address }}</p>
                                 <p class="opentime"><strong>营业时间: </strong>{{ shop.opentime }}</p>

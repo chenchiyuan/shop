@@ -31,3 +31,9 @@ class Product(models.Model):
 
     def price_unit(self):
         return "%d元/ %s" %(self.price, self.unit)
+
+    def get_picture(self):
+        if self.picture:
+            return self.picture
+        else:
+            return const.PRODUCT_PICTURE_DEFAULT

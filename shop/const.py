@@ -2,6 +2,7 @@
 # __author__ = chenchiyuan
 
 from __future__ import division, unicode_literals, print_function
+from django.conf import settings
 
 # URL PATTERNS
 URL_SHOP_ID = "(?P<shop_id>[0-9]+)"
@@ -31,3 +32,7 @@ UNIT_CHOICES = (
 )
 
 USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
+
+SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "beiwei40.jpg")
+PRODUCT_PICTURE_DEFAULT = SHOP_PICTURE_DEFAULT
+ARROW_IMAGE = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "arrow.png")

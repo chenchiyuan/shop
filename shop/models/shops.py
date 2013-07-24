@@ -43,6 +43,12 @@ class Shop(models.Model, GetByUniqueMixin):
     def __unicode__(self):
         return "%s: %s: %s" %(self.region, self.owner, self.name)
 
+    def get_picture(self):
+        if self.picture:
+            return self.picture
+        else:
+            return const.SHOP_PICTURE_DEFAULT
+
     def opentime(self):
         if not self.start and not self.end:
             return u"全天开业"
