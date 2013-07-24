@@ -35,4 +35,4 @@ USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
 
 SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "beiwei40.jpg")
 PRODUCT_PICTURE_DEFAULT = SHOP_PICTURE_DEFAULT
-ARROW_IMAGE = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "arrow.png")
+ARROW_IMAGE = ""#"http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "arrow.png")
