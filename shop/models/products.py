@@ -30,7 +30,7 @@ class Product(models.Model):
         return "%s: %s" %(self.shop.name, self.name)
 
     def price_unit(self):
-        return "%d元/ %s" %(self.price, self.unit)
+        return "%.2f元/ %s" %(self.price, self.unit)
 
     def get_picture(self):
         if self.picture:
