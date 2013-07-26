@@ -9,6 +9,8 @@ from products import Product
 from orders import Item, Order
 from sms import Message
 
+from users import User, WeiXin
+
 __all__ = [
     Region, Category, Shop, Product, Item, Order, Message
 ]

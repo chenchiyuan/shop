@@ -8,6 +8,8 @@ PROJECT_HOME = os.path.dirname(os.path.realpath(__file__))
 DEBUG = config.getboolean("django", "debug")
 TEMPLATE_DEBUG = config.getboolean("django", "template_dubug")
 
+AUTH_USER_MODEL = 'shop.User'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
@@ -17,6 +19,11 @@ ALLOWED_HOSTS = json.loads(config.get("django", "allowed_hosts"))
 MANAGERS = ADMINS
 
 DOMAIN_NAME = config.get("django", "domain")
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    "shop.backends.authentications.TokenBackend",
+)
 
 DATABASES = {
     'default': {

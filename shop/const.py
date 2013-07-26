@@ -18,6 +18,21 @@ DB_ADDRESS_LENGTH = 128
 DB_MESSAGE_LENGTH = 512
 DB_NOTICE_LENGTH = 1024
 
+LOCAL = 0
+WEIXIN = 1
+WEIBO = 2
+
+THIRD_FROM_DICT = {
+    "weixin": WEIXIN,
+    "weibo": WEIBO,
+    "local": LOCAL
+}
+
+THIRD_FROM_CHOICES = (
+    (LOCAL, "本地"),
+    (WEIXIN, "微信"),
+    (WEIBO, "微博")
+)
 
 USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
 
