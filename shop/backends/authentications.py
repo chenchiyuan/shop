@@ -7,4 +7,7 @@ from shop.helper.thirds import Third
 class TokenBackend(object):
     def authenticate(self, token, third_from):
         third = Third.get_third(third_from, token)
-        return third.user
+        if not third:
+            return None
+        else:
+            return third.user
