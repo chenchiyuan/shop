@@ -17,6 +17,10 @@ class WeiXinView(View):
         return HttpResponse(echostr)
 
     def post(self, request, *args, **kwargs):
+        w = WeiXin.on_message(request.body)
+        json_data = w.to_json()
+        token = json_data['FromUserName']
+
         region = Region.get_by_unique(**kwargs)
         categories = region.category_set.all()[:8]
         articles = [
@@ -28,16 +32,15 @@ class WeiXinView(View):
             }
         ]
         for category in categories:
+            url = get_domain_path(get_url_by_conf("region_category", args=[region.id, category.id]))
             article = {
                 "title": category.name,
                 "description": "",
                 "picurl": const.ARROW_IMAGE,
-                "url": get_domain_path(get_url_by_conf("region_category", args=[region.id, category.id]))
+                "url": const.auto_login_url(url, token=token)
             }
             articles.append(article)
 
-        w = WeiXin.on_message(request.body)
-        json_data = w.to_json()
         xml = w.to_pic_text(from_user_name=json_data['ToUserName'], to_user_name=json_data['FromUserName'],
             articles=articles)
         return HttpResponse(xml)

@@ -39,3 +39,6 @@ USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
 SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "shop_default.png")
 PRODUCT_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "item_default.png")
 ARROW_IMAGE = ""#"http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "arrow.png")
+
+def auto_login_url(url, token, third_from="weixin"):
+    return "http://%s/login/auto/?token=%s&third_from=%s&next=%s" %(settings.DOMAIN_NAME, token, third_from, url)
