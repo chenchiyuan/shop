@@ -34,6 +34,18 @@ THIRD_FROM_CHOICES = (
     (WEIBO, "微博")
 )
 
+ORDER_FAIL = 0
+ORDER_CREATED = 1
+ORDER_SENT = 2
+ORDER_SUCCESS = 3
+
+ORDER_STATUS_CHOICES = {
+    (ORDER_FAIL, "失败"),
+    (ORDER_CREATED, "创建"),
+    (ORDER_SENT, "已发送"),
+    (ORDER_SUCCESS, "成功")
+}
+
 USER_STATE = lambda user_key: "SHOP:USER:STATE:%s" %user_key
 
 SHOP_PICTURE_DEFAULT = "http://%s/static/assets/community/%s" %(settings.DOMAIN_NAME, "shop_default.png")
