@@ -46,6 +46,26 @@ class ProductAdmin(admin.ModelAdmin):
         return obj.price_unit()
     price_unit.short_description = "单价"
 
+    def formfield_for_foreignkey(self, db_field, request=None, **kwargs):
+        if db_field.name == "shop":
+            try:
+                item = Product.objects.all().order_by('-id')[0]
+                kwargs['initial'] = item.shop.id
+            except:
+                pass
+        return super(ProductAdmin, self).formfield_for_foreignkey(
+            db_field, request=request, **kwargs
+        )
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == "category":
+            try:
+                item = Product.objects.all().order_by('-id')[0]
+                kwargs['initial'] = item.category
+            except:
+                pass
+        return super(ProductAdmin, self).formfield_for_dbfield(db_field, **kwargs)
+
 class OrderAdmin(admin.ModelAdmin):
     pass
 
