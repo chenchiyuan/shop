@@ -10,7 +10,8 @@ from orders import Item, Order
 from sms import Message
 
 from users import User, WeiXin
+from notices import Notice
 
 __all__ = [
-    Region, Category, Shop, ShopCategory, Product, Item, Order, Message
+    Region, Category, Shop, ShopCategory, Product, Item, Order, Message, Notice
 ]

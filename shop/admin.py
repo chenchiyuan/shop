@@ -7,6 +7,7 @@ from models import Region, Category, Shop, Product, ShopCategory
 from models import Order, Item, Message
 from models import User, WeiXin
 from django.contrib.auth.models import Group
+from models import Notice
 
 class RegionAdmin(admin.ModelAdmin):
     list_display = ["name", "description"]
@@ -88,6 +89,9 @@ class MyUserAdmin(admin.ModelAdmin):
 class ShopCategoryAdmin(admin.ModelAdmin):
     pass
 
+class NoticeAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Shop, ShopAdmin)
@@ -96,5 +100,6 @@ admin.site.register(Order, OrderAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Message, MessageAdmin)
 admin.site.register(ShopCategory, ShopCategoryAdmin)
+admin.site.register(Notice, NoticeAdmin)
 
 admin.site.register(User, MyUserAdmin)
