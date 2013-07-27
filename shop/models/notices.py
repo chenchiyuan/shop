@@ -2,6 +2,7 @@
 # __author__ = chenchiyuan
 
 from __future__ import division, unicode_literals, print_function
+from shop.utils import datetime_format
 from utils.alias import tran_lazy as _
 from django.db import models
 from shop.models.regions import Region
@@ -30,3 +31,7 @@ class Notice(models.Model):
         self.datetime = timezone.now()
         return super(Notice, self).save(force_insert=force_insert, force_update=force_update,
         using=using, update_fields=update_fields)
+
+    @property
+    def datetime_formatted(self):
+        return datetime_format(self.datetime)
