@@ -5,6 +5,7 @@
 data/
 migrations/
 static/*
+.DS_Store
 
 config/override.py
 config/deploy_env.py

@@ -3,7 +3,7 @@
 
 from __future__ import division, unicode_literals, print_function
 from django.contrib import admin
-from models import Region, Category, Shop, Product
+from models import Region, Category, Shop, Product, ShopCategory
 from models import Order, Item, Message
 from models import User, WeiXin
 from django.contrib.auth.models import Group
@@ -40,7 +40,7 @@ class ShopAdmin(admin.ModelAdmin):
 
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ["name", "keywords", "shop__name"]
-    list_display = ["name", "shop", "price_unit", "category", "keywords"]
+    list_display = ["name", "shop", "category", "keywords"]
 
     def price_unit(self, obj):
         return obj.price_unit()
@@ -53,15 +53,22 @@ class ProductAdmin(admin.ModelAdmin):
                 kwargs['initial'] = item.shop.id
             except:
                 pass
+        elif db_field.name == "category":
+            try:
+                item = Product.objects.all().order_by('-id')[0]
+                kwargs['initial'] = item.category.id
+            except:
+                pass
+
         return super(ProductAdmin, self).formfield_for_foreignkey(
             db_field, request=request, **kwargs
         )
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        if db_field.name == "category":
+        if db_field.name == "unit":
             try:
                 item = Product.objects.all().order_by('-id')[0]
-                kwargs['initial'] = item.category
+                kwargs['initial'] = item.unit
             except:
                 pass
         return super(ProductAdmin, self).formfield_for_dbfield(db_field, **kwargs)
@@ -78,6 +85,9 @@ class MessageAdmin(admin.ModelAdmin):
 class MyUserAdmin(admin.ModelAdmin):
     pass
 
+class ShopCategoryAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Region, RegionAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Shop, ShopAdmin)
@@ -85,5 +95,6 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Item, ItemAdmin)
 admin.site.register(Message, MessageAdmin)
+admin.site.register(ShopCategory, ShopCategoryAdmin)
 
 admin.site.register(User, MyUserAdmin)

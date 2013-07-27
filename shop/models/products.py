@@ -3,7 +3,7 @@
 
 from __future__ import division, unicode_literals, print_function
 from django.db import models
-from shop.models import Shop
+from shop.models import Shop, ShopCategory
 from utils.alias import tran_lazy as _
 from shop import const
 
@@ -20,9 +20,7 @@ class Product(models.Model):
     shop = models.ForeignKey(Shop, verbose_name=_("商户"))
     keywords = models.CharField(_("搜索关键字"), blank=True, null=True, default="",
         help_text=u"搜索关键字", max_length=const.DB_NAME_LENGTH)
-    category = models.CharField(_("商品分类"), blank=True, null=True,
-        default="", max_length=const.DB_NAME_LENGTH)
-
+    category = models.ForeignKey(ShopCategory,verbose_name=_("商品分类"), default=None, blank=True, null=True)
     picture = models.CharField(_("照片"), max_length=const.DB_ADDRESS_LENGTH,
         blank=True, null=True, default="")
 

@@ -3,7 +3,7 @@
 
 from __future__ import division, unicode_literals, print_function
 from regions import Region, Category
-from shops import Shop
+from shops import Shop, ShopCategory
 from products import Product
 
 from orders import Item, Order
@@ -12,5 +12,5 @@ from sms import Message
 from users import User, WeiXin
 
 __all__ = [
-    Region, Category, Shop, Product, Item, Order, Message
+    Region, Category, Shop, ShopCategory, Product, Item, Order, Message
 ]

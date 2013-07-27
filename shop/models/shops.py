@@ -62,3 +62,17 @@ class Shop(models.Model, GetByUniqueMixin):
         if self.phone2:
             phones.append(self.phone2)
         return "|".join(phones)
+
+class ShopCategory(models.Model):
+    class Meta:
+        app_label = 'shop'
+        db_table = 'shop_shop_category'
+        verbose_name = verbose_name_plural = _('店铺分类')
+
+    shop = models.ForeignKey(Shop, verbose_name=_("商铺"))
+    name = models.CharField(_("分类名"), max_length=const.DB_NAME_LENGTH)
+    priority = models.IntegerField(_("优先级"), default=0, blank=True, null=True,
+        help_text=u"数字越大优先级越高")
+
+    def __unicode__(self):
+        return "%s: %s" %(self.shop.name, self.name)
