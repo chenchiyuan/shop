@@ -26,9 +26,9 @@ class WeiXinView(View):
         categories = region.category_set.all()[:8]
         articles = [
             {
-                "title": u"%s" % region.name,
+                "title": u"%s公告栏" % region.name,
                 "description": u"%s" %region.description,
-                "picurl": "http://life.zoneke.com/static/assets/community/banner.jpg",
+                "picurl": "http://life.zoneke.com/static/assets/community/logo.jpg",
                 "url": const.auto_login_url(notices_url, token=token)
             }
         ]
