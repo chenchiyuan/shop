@@ -16,7 +16,9 @@ class Notice(models.Model):
         ordering = ['-datetime']
 
     region = models.ForeignKey(Region, verbose_name=_("所属小区"))
-    content = models.CharField(_("内容"), max_length=const.DB_NOTICE_LENGTH,
+    title = models.CharField(_("标题"), max_length=const.DB_NAME_LENGTH,
+        blank=True, null=True, default="")
+    content = models.TextField(_("内容"), max_length=const.DB_NOTICE_LENGTH,
         default="", blank=True, null=True)
     datetime = models.DateTimeField(default=timezone.now, blank=True, null=True)
 
