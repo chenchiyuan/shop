@@ -8,6 +8,7 @@ from django.conf import settings
 URL_SHOP_ID = "(?P<shop_id>[0-9]+)"
 URL_CATEGORY_ID = "(?P<category_id>[0-9]+)"
 URL_REGION_ID = "(?P<region_id>[0-9]+)"
+URL_NOTICE_ID = "(?P<notice_id>[0-9]+)"
 URL_ID = "(?P<id>[0-9]+)"
 
 # DB LENGTH
