@@ -22,13 +22,14 @@ class WeiXinView(View):
         token = json_data['FromUserName']
 
         region = Region.get_by_unique(**kwargs)
+        notices_url = get_url_by_conf("region_notices", args=[region.id])
         categories = region.category_set.all()[:8]
         articles = [
             {
                 "title": u"%s" % region.name,
                 "description": u"%s" %region.description,
                 "picurl": "http://life.zoneke.com/static/assets/community/banner.jpg",
-                "url": "http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NDQ0MzMzNA==&appmsgid=10000001&itemidx=1&sign=f0e4525d09fb73da5fb44835282eb0f4#wechat_redirect"
+                "url": const.auto_login_url(notices_url, token=token)
             }
         ]
         for category in categories:
