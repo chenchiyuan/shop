@@ -37,15 +37,18 @@
 			</div>
 
 			<div class="item-list">
-				<ul data-role="listview" data-autodividers="false" data-filter="{{ filter }}" data-inset="true" data-icon="false" data-divider-theme="b" data-filter-placeholder="搜索">
-                    {% for product in shop.product_set.all %}
-                        <li>
-                            <a href="#">
-                                <img src="{{ product.get_picture }}">
-                                <h2>{{ product.name }}</h2>
-                                <p>{{ product.price_unit }}</p>
-                            </a>
-                        </li>
+				<ul data-role="listview" data-autodividers="false" data-filter="{{ filter }}" data-inset="true" data-icon="false" data-divider-theme="b" data-filter-placeholder="搜索" data->
+                    {% for category in shop.shopcategory_set.all %}
+                    	<li data-role="list-divider">{{ category.name}}</li>
+	                    {% for product in category.product_set.all %}
+	                        <li>
+	                            <a href="#">
+	                                <img src="{{ product.get_picture }}">
+	                                <h2>{{ product.name }}</h2>
+	                                <p>{{ product.price_unit }}</p>
+	                            </a>
+	                        </li>
+	                    {% endfor %}
                     {% endfor %}
 				</ul>
 			</div>
