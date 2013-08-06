@@ -13,6 +13,7 @@ class Shop(models.Model, GetByUniqueMixin):
         app_label = 'shop'
         db_table = 'shop_shop'
         verbose_name = verbose_name_plural = _('店铺')
+        ordering = ['-priority']
 
     name = models.CharField(_("店名"), max_length=const.DB_NAME_LENGTH)
     owner = models.CharField(_("店主名"), max_length=const.DB_NAME_LENGTH,
@@ -33,6 +34,9 @@ class Shop(models.Model, GetByUniqueMixin):
         blank=True, null=True, default="")
     picture = models.CharField(_("照片"), max_length=const.DB_ADDRESS_LENGTH,
         blank=True, null=True, default="")
+
+    priority = models.IntegerField(_("优先级"), default=0, blank=True, null=True,
+        help_text=u"数字越大优先级越高")
 
     sending_price = models.SmallIntegerField(_(u"起送价格"), default=0,
         blank=True, null=True)
@@ -61,7 +65,7 @@ class Shop(models.Model, GetByUniqueMixin):
             phones.append(self.phone)
         if self.phone2:
             phones.append(self.phone2)
-        return "|".join(phones)
+        return ",".join(phones)
 
 class ShopCategory(models.Model):
     class Meta:
