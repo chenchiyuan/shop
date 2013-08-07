@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'login/auto/', auto_login ,name="auto_login"),
-    url(r'^', include('shop.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^', include('shop.urls'))
 )

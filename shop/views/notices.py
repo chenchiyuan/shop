@@ -2,7 +2,8 @@
 # __author__ = chenchiyuan
 
 from __future__ import division, unicode_literals, print_function
-from django.views.generic import TemplateView
+from django.http import HttpResponse
+from django.views.generic import TemplateView, View
 from shop.models import Notice
 
 class NoticeListView(TemplateView):
@@ -15,12 +16,8 @@ class NoticeListView(TemplateView):
         context['notices'] = notices
         return context
 
-class NoticeDetailView(TemplateView):
-    template_name = "shop/notice_detail.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(NoticeDetailView, self).get_context_data(**kwargs)
+class NoticeDetailView(View):
+    def get(self, request, *args, **kwargs):
         notice_id = kwargs.get("id", 1)
         notice = Notice.objects.get(id=notice_id)
-        context['notice'] = notice
-        return context
+        return HttpResponse(notice.content)
