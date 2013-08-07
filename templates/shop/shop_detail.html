@@ -23,7 +23,7 @@
 			<div class="shop-func">
 				<ul data-role="listview" data-inset="true">
 					<li>
-						<a href="{% url 'region_shop_notice' shop.region.id shop.id %}" rel="external">{{ shop.notice }}！</a>
+						<a href="{% url 'region_shop_notice' shop.region.id shop.id %}" rel="external">{{ shop.intro }}！</a>
 					</li>
 					<li>
 						<a href="tel:{{ shop.phone }}">
