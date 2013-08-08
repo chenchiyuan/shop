@@ -139,7 +139,6 @@ INSTALLED_APPS = (
     "south",
     'shop',
     'raven.contrib.django.raven_compat',
-    "tinymce",
 )
 
 # A sample logging configuration. The only tangible logging
@@ -208,11 +207,3 @@ RAVEN_CONFIG = {
 # SMS
 SMS_ACCESS_KEY = config.get("sms", "accesskey")
 SMS_SECRET_KEY = config.get("sms", "secretkey")
-
-TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace",
-    'theme': "advanced",
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
-    'relative_urls': False,
-}

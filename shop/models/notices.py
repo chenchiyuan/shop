@@ -8,7 +8,6 @@ from django.db import models
 from shop.models.regions import Region
 from shop import const
 from django.utils import timezone
-from tinymce import models as tinymce_models
 
 class Notice(models.Model):
     class Meta:
@@ -21,7 +20,7 @@ class Notice(models.Model):
     title = models.CharField(_("标题"), max_length=const.DB_NAME_LENGTH,
         blank=True, null=True, default="")
 
-    content = tinymce_models.HTMLField(_("内容"), max_length=const.DB_NOTICE_LENGTH,
+    content = models.TextField(_("内容"), max_length=const.DB_NOTICE_LENGTH,
         default="", blank=True, null=True)
     datetime = models.DateTimeField(default=timezone.now, blank=True, null=True)
 

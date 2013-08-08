@@ -7,7 +7,6 @@ from shop.models.mixins import GetByUniqueMixin
 from utils.alias import tran_lazy as _
 from regions import Region, Category
 from shop import const
-from tinymce import models as tinymce_models
 
 class Shop(models.Model, GetByUniqueMixin):
     class Meta:
@@ -36,7 +35,7 @@ class Shop(models.Model, GetByUniqueMixin):
         default="", blank=True, null=True,
         help_text=_("简短公告, 用于列表页面展示"))
 
-    notice = tinymce_models.HTMLField(_("公告"), max_length=const.DB_NOTICE_LENGTH,
+    notice = models.TextField(_("公告"), max_length=const.DB_NOTICE_LENGTH,
         blank=True, null=True, default="")
 
     picture = models.CharField(_("照片"), max_length=const.DB_ADDRESS_LENGTH,
