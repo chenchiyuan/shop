@@ -7,7 +7,7 @@ from shop.models.mixins import GetByUniqueMixin
 from utils.alias import tran_lazy as _
 from regions import Region, Category
 from shop import const
-from markdown import markdown
+from shop.utils import markdown
 
 class Shop(models.Model, GetByUniqueMixin):
     class Meta:

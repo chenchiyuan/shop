@@ -8,7 +8,7 @@ from django.db import models
 from shop.models.regions import Region
 from shop import const
 from django.utils import timezone
-from markdown import markdown
+from shop.utils import markdown
 
 class Notice(models.Model):
     class Meta:
