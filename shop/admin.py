@@ -18,7 +18,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ["name", "region", "priority"]
 
 class ShopAdmin(admin.ModelAdmin):
-    list_display = ["name", "owner", "telephone", "opentime", "address", "short_notice", "sending_price", "image"]
+    list_display = ["name", "owner", "telephone", "opentime", "address", "priority", "short_notice",  "sending_price", "image"]
     search_fields = ["name", "owner"]
 
     def telephone(self, obj):
