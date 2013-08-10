@@ -7,6 +7,7 @@ from shop.models.mixins import GetByUniqueMixin
 from utils.alias import tran_lazy as _
 from regions import Region, Category
 from shop import const
+from markdown import markdown
 
 class Shop(models.Model, GetByUniqueMixin):
     class Meta:
@@ -50,8 +51,13 @@ class Shop(models.Model, GetByUniqueMixin):
     region = models.ForeignKey(Region, verbose_name=_("所属区域"))
     category = models.ForeignKey(Category, verbose_name=_("所属分类"), blank=True, null=True)
 
+
     def __unicode__(self):
         return "%s: %s: %s" %(self.region, self.owner, self.name)
+
+    @property
+    def notice_md(self):
+        return markdown(self.notice)
 
     def get_picture(self):
         if self.picture:

@@ -20,4 +20,4 @@ class NoticeDetailView(View):
     def get(self, request, *args, **kwargs):
         notice_id = kwargs.get("id", 1)
         notice = Notice.objects.get(id=notice_id)
-        return HttpResponse(notice.content)
+        return HttpResponse(notice.content_md)

@@ -25,4 +25,4 @@ class ShopNoticeView(View):
     def get(self, requests, *args, **kwargs):
         shop_id = kwargs.get("shop_id", "")
         shop = Shop.get_by_unique(id=shop_id)
-        return HttpResponse(shop.notice)
+        return HttpResponse(shop.notice_md)

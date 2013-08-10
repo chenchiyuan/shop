@@ -8,6 +8,7 @@ from django.db import models
 from shop.models.regions import Region
 from shop import const
 from django.utils import timezone
+from markdown import markdown
 
 class Notice(models.Model):
     class Meta:
@@ -36,3 +37,7 @@ class Notice(models.Model):
     @property
     def datetime_formatted(self):
         return datetime_format(self.datetime)
+
+    @property
+    def content_md(self):
+        return markdown(self.content)
