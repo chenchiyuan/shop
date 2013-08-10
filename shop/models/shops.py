@@ -32,7 +32,7 @@ class Shop(models.Model, GetByUniqueMixin):
     address = models.CharField(_("地址"), max_length=const.DB_ADDRESS_LENGTH,
         blank=True, null=True)
 
-    intro = models.TextField(_("标题"), max_length=const.DB_MESSAGE_LENGTH,
+    intro = models.CharField(_("标题"), max_length=const.DB_ADDRESS_LENGTH,
         default="", blank=True, null=True,
         help_text=_("商店标题, 用于列表页面展示"))
 
