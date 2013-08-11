@@ -6,6 +6,7 @@ from interface import StateInterface
 from shop import const
 from shop.models import Region
 from utils.helper import get_url_by_conf, get_domain_path
+from datetime import datetime
 
 INDEX = "INDEX"
 AFTER_SUBSCRIBE = "AFTER_SUBSCRIBE"
@@ -40,10 +41,10 @@ class StateIndex(StateInterface):
             articles.append(article)
 
         articles.append({
-            "title": "请回复m获取最新的菜单",
+            "title": "回复m获取最新菜单 (当前版本%s)" %datetime.now().strftime("%Y-%m-%d") ,
             "description": "",
             "picurl": "",
-            "url": ""
+            "url": "http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NDQ0MzMzNA==&appmsgid=10000007&itemidx=1&sign=23be788fc97ed1f64100cedbbad335e0"
             }
         )
         return self._to_full_text(articles)
@@ -63,5 +64,5 @@ class StateIndex(StateInterface):
 class StateAfterSubscribe(StateIndex):
     def to_xml(self):
         content = "欢迎关注北纬40生活小帮手" \
-                  "回复m获取最新的菜单"
+                  "回复m获取最新菜单"
         return self._to_wx_text(content)
