@@ -26,4 +26,3 @@ class State(object):
 
     def set_state(self, state="index", meta={}):
         self.state = StateManager.get_state(self.from_user_name, self.to_user_name, state, meta)
-        StateManager.set_user_state(self.to_user_name, state, meta)
