@@ -11,7 +11,7 @@ from shop.views.notices import NoticeListView, NoticeDetailView
 import const
 
 urlpatterns = patterns('',
-    url(r'^regions/%s/weixin/$' %const.URL_ID, WeiXinView.as_view(), name="weixin_api"),
+    url(r'^regions/%s/weixin/$' %const.URL_REGION_ID, WeiXinView.as_view(), name="weixin_api"),
     url(r'^regions/%s/categories/%s/$' %(const.URL_REGION_ID, const.URL_CATEGORY_ID), CategoryShopsView.as_view(),
         name="region_category"),
     url(r'^regions/%s/shops/%s/$' %(const.URL_REGION_ID, const.URL_SHOP_ID), ShopDetailView.as_view(), name="region_shop"),

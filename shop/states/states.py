@@ -49,7 +49,7 @@ class StateIndex(StateInterface):
         return self._to_full_text(articles)
 
     def handle(self, content):
-        if content.lower == "m":
+        if content.lower() == "m":
             return INDEX, {
                 "region_id": self.region_id,
                 "ignore": False
