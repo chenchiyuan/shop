@@ -15,7 +15,7 @@ class WeiXinView(View):
 
     def post(self, request, *args, **kwargs):
         content = request.body
-        state = WeiXinReceiver.get_state(content)
+        state = WeiXinReceiver.get_state(content, **kwargs)
         xml_data = state.to_xml()
         return HttpResponse(xml_data)
 

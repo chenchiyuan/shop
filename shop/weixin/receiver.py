@@ -7,20 +7,28 @@ from shop.states import State
 
 class WeiXinReceiver(object):
     @classmethod
-    def get_state(cls, post_data):
+    def get_state(cls, post_data, **kwargs):
         w = WeiXin.on_message(post_data)
         json_data = w.to_json()
         msg_type = json_data.get("MsgType", "")
         handler = getattr(cls, msg_type, cls.text)
+
+        json_data.update(**kwargs)
         return handler(**json_data)
 
     @classmethod
     def event(cls, FromUserName, ToUserName, **kwargs):
-        state = State.after_subscribe(to_user_name=FromUserName, from_user_name=ToUserName)
+        state = State.after_subscribe(
+            to_user_name=FromUserName, from_user_name=ToUserName,
+            **kwargs
+        )
         return state
 
     @classmethod
     def text(cls, FromUserName, ToUserName, **kwargs):
-        state = State(to_user_name=FromUserName, from_user_name=ToUserName)
+        state = State(
+            to_user_name=FromUserName, from_user_name=ToUserName,
+            **kwargs
+        )
         state.handle(kwargs.get("Content", ""))
         return state

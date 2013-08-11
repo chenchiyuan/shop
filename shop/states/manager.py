@@ -2,21 +2,22 @@
 # __author__ = chenchiyuan
 
 from __future__ import division, unicode_literals, print_function
-from shop.states.states import StateIndex, INDEX
+from shop.states.states import StateIndex, StateAfterSubscribe, INDEX, AFTER_SUBSCRIBE
 
 class StateManager(object):
     mapping = {
-        INDEX: StateIndex
+        INDEX: StateIndex,
+        AFTER_SUBSCRIBE: StateAfterSubscribe,
     }
 
     @classmethod
-    def get_user_state(cls, from_user_name, to_user_name, state="index", meta={}):
-        return cls.get_state(from_user_name, to_user_name, state=state, meta=meta)
+    def get_user_state(cls, from_user_name, to_user_name, state="index", **kwargs):
+        return cls.get_state(from_user_name, to_user_name, state=state, **kwargs)
 
     @classmethod
-    def get_state(cls, from_user_name, to_user_name, state="index", meta={}):
+    def get_state(cls, from_user_name, to_user_name, state="index", **kwargs):
         cls_name = cls.mapping.get(state, StateIndex)
-        if not meta:
-            return cls_name.initial(from_user_name, to_user_name, meta=meta)
+        if not kwargs:
+            return cls_name.initial(from_user_name, to_user_name)
         else:
-            return cls_name(from_user_name, to_user_name, meta)
+            return cls_name(from_user_name, to_user_name, **kwargs)

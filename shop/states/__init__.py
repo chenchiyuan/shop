@@ -9,7 +9,7 @@ class State(object):
     def __init__(self, from_user_name, to_user_name, state="index", **kwargs):
         self.to_user_name = to_user_name
         self.from_user_name = from_user_name
-        self.state = StateManager.get_user_state(from_user_name, to_user_name, state=state, meta=kwargs)
+        self.state = StateManager.get_user_state(from_user_name, to_user_name, state=state, **kwargs)
 
     @classmethod
     def after_subscribe(cls, from_user_name, to_user_name, state="index", **kwargs):

@@ -18,7 +18,7 @@ class StateIndex(StateInterface):
 
         token = self.to_user_name
 
-        region = Region.get_by_unique()
+        region = Region.get_by_unique(id=self.meta.get('region_id', 1))
         notices_url = get_url_by_conf("region_notices", args=[region.id])
         categories = region.category_set.all()[:7]
         articles = [
