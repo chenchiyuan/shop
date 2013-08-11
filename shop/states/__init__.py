@@ -18,11 +18,11 @@ class State(object):
         return item
 
     def handle(self, content):
-        new_state_index, result = self.state.handle(content)
-        self.set_state(new_state_index, meta=result)
+        new_state_index, kwargs = self.state.handle(content)
+        self.set_state(new_state_index, **kwargs)
 
     def to_xml(self):
         return self.state.to_xml()
 
-    def set_state(self, state="index", meta={}):
-        self.state = StateManager.get_state(self.from_user_name, self.to_user_name, state, meta)
+    def set_state(self, state="index", **kwargs):
+        self.state = StateManager.get_state(self.from_user_name, self.to_user_name, state, **kwargs)

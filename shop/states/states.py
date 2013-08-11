@@ -12,13 +12,13 @@ AFTER_SUBSCRIBE = "AFTER_SUBSCRIBE"
 
 class StateIndex(StateInterface):
     def to_xml(self):
-        ignore = self.meta.get("ignore", True)
+        ignore = self.ignore
         if ignore:
             return self._to_wx_text()
 
         token = self.to_user_name
 
-        region = Region.get_by_unique(id=self.meta.get('region_id', 1))
+        region = Region.get_by_unique(id=self.region_id)
         notices_url = get_url_by_conf("region_notices", args=[region.id])
         categories = region.category_set.all()[:7]
         articles = [
@@ -50,12 +50,14 @@ class StateIndex(StateInterface):
 
     def handle(self, content):
         if content.lower == "m":
-            return INDEX, {"region_id": self.meta.get("region_id", 1),
-                           "ignore": False
+            return INDEX, {
+                "region_id": self.region_id,
+                "ignore": False
             }
         else:
-            return INDEX, {"region_id": self.meta.get("region_id", 1),
-                           "ignore": True
+            return INDEX, {
+                "region_id": self.region_id,
+                "ignore": True
             }
 
 class StateAfterSubscribe(StateIndex):
