@@ -41,10 +41,10 @@ class StateIndex(StateInterface):
             articles.append(article)
 
         articles.append({
-            "title": "回复m获取最新菜单 (当前版本%s)" %datetime.now().strftime("%Y-%m-%d") ,
+            "title": "回复m获取最新菜单\n(当前版本%s)" %datetime.now().strftime("%Y-%m-%d") ,
             "description": "",
             "picurl": "",
-            "url": "http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NDQ0MzMzNA==&appmsgid=10000007&itemidx=1&sign=23be788fc97ed1f64100cedbbad335e0"
+            "url": ""
             }
         )
         return self._to_full_text(articles)
