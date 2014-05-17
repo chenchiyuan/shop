@@ -11,7 +11,9 @@ from sms import Message
 
 from users import User, WeiXin
 from notices import Notice
+from activity import Activity, ActivityTime, ActivityAddress
 
 __all__ = [
-    Region, Category, Shop, ShopCategory, Product, Item, Order, Message, Notice
+    Region, Category, Shop, ShopCategory, Product, Item, Order, Message, Notice,
+    Activity, ActivityTime, ActivityAddress
 ]

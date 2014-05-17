@@ -8,6 +8,7 @@ from shop.views.shops import ShopDetailView, ShopNoticeView
 from shop.views.weixin import WeiXinView
 from shop.views.orders import OrdersView
 from shop.views.notices import NoticeListView, NoticeDetailView
+from shop.views.activity import ActivityApiView, ActivityAddressVoteView, ActivityTimeVoteView
 import const
 
 urlpatterns = patterns('',
@@ -18,6 +19,10 @@ urlpatterns = patterns('',
     url(r'^orders/%s/' %const.URL_ID,  OrdersView.as_view(), name="orders"),
     url(r'^regions/%s/shops/%s/notice/$' %(const.URL_REGION_ID, const.URL_SHOP_ID), ShopNoticeView.as_view(), name="region_shop_notice"),
     url(r'^regions/%s/notices/$' %const.URL_REGION_ID, NoticeListView.as_view(), name="region_notices"),
-    url(r'^regions/%s/notices/%s/$' %(const.URL_REGION_ID, const.URL_ID), NoticeDetailView.as_view(), name="region_notice_detail")
+    url(r'^regions/%s/notices/%s/$' %(const.URL_REGION_ID, const.URL_ID), NoticeDetailView.as_view(), name="region_notice_detail"),
+
+    url(r'^activity/$', ActivityApiView.as_view(), name="activity_api_view"),
+    url(r'^vote/time/%s/' %const.URL_ID, ActivityTimeVoteView.as_view(), name="activity_time_vote"),
+    url(r'^vote/address/%s/' %const.URL_ID, ActivityAddressVoteView.as_view(), name="activity_address_vote"),
 )
 
