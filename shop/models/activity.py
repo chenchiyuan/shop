@@ -12,6 +12,7 @@ class Activity(models.Model, GetByUniqueMixin):
         app_label = 'shop'
         db_table = 'shop_activity'
         verbose_name = verbose_name_plural = u"活动"
+        ordering = ['-id']
 
     name = models.CharField(u"活动名称", max_length=128)
     owner = models.CharField(u"活动创建者", max_length=64, default="")
